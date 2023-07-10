@@ -1,0 +1,250 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="StartDate" Type="InArgument(x:String)" />
+    <x:Property Name="EndDate" Type="InArgument(x:String)" />
+    <x:Property Name="DTTransactions" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1840,1191</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Security</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="21">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="418,334" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Mock Data" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:BuildDataTable DataTable="[DTTransactions]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Date&quot; msdata:Caption=&quot;&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Amount&quot; msdata:Caption=&quot;&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Type&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Reference&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Description&quot; msdata:Caption=&quot;&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Dispute&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Balance&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Date&gt;17/10/2020&lt;/Date&gt;&#xD;&#xA;    &lt;Amount&gt;1357.91&lt;/Amount&gt;&#xD;&#xA;    &lt;Type&gt;debit&lt;/Type&gt;&#xD;&#xA;    &lt;Reference /&gt;&#xD;&#xA;    &lt;Description&gt;Taxes&lt;/Description&gt;&#xD;&#xA;    &lt;Balance&gt;-1233.96&lt;/Balance&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Date&gt;17/10/2020&lt;/Date&gt;&#xD;&#xA;    &lt;Amount&gt;2.50&lt;/Amount&gt;&#xD;&#xA;    &lt;Type&gt;debit&lt;/Type&gt;&#xD;&#xA;    &lt;Reference /&gt;&#xD;&#xA;    &lt;Description&gt;Walmart&lt;/Description&gt;&#xD;&#xA;    &lt;Balance&gt;-1236.46&lt;/Balance&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Date&gt;18/10/2020&lt;/Date&gt;&#xD;&#xA;    &lt;Amount&gt;8.99&lt;/Amount&gt;&#xD;&#xA;    &lt;Type&gt;debit&lt;/Type&gt;&#xD;&#xA;    &lt;Reference /&gt;&#xD;&#xA;    &lt;Description&gt;Bookstore&lt;/Description&gt;&#xD;&#xA;    &lt;Balance&gt;-1245.45&lt;/Balance&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Date&gt;18/10/2020&lt;/Date&gt;&#xD;&#xA;    &lt;Amount&gt;16.42&lt;/Amount&gt;&#xD;&#xA;    &lt;Type&gt;debit&lt;/Type&gt;&#xD;&#xA;    &lt;Reference /&gt;&#xD;&#xA;    &lt;Description&gt;Walmart&lt;/Description&gt;&#xD;&#xA;    &lt;Balance&gt;-1261.87&lt;/Balance&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;  &lt;TableName&gt;&#xD;&#xA;    &lt;Date&gt;18/10/2020&lt;/Date&gt;&#xD;&#xA;    &lt;Amount&gt;50.00&lt;/Amount&gt;&#xD;&#xA;    &lt;Type&gt;debit&lt;/Type&gt;&#xD;&#xA;    &lt;Reference /&gt;&#xD;&#xA;    &lt;Description&gt;Bank Charges&lt;/Description&gt;&#xD;&#xA;    &lt;Balance&gt;-1311.87&lt;/Balance&gt;&#xD;&#xA;  &lt;/TableName&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+    </Sequence>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="376,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="594,3733" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="Use UiBank" sap:VirtualizedContainerService.HintSize="552,3681" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: Enter your credentials to log in" sap:VirtualizedContainerService.HintSize="510,549" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" Version="V1">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,260" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="203, 100, 71, 23" ElementType="Button" FriendlyName="'Submit'" FullSelectorArgument="&lt;wnd ctrlname='btn_Submit' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='btn_Submit' check:text='Submit' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEsAAAAbCAYAAAA0wHIdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFRSURBVGhD7ZZRkoMgDEC5E7fJSfaPq3AVTtFvT5INApqy0ZqW0ulsMvNGDGDNU7AOLS6HyVKEyVLEnSz3czM6eJisB/AQZS3L8u8xWQpMlgKTpWCurBTQO4cu4z2GKIxp5LE+YJL6PsREWRHBkaBUz1dxgPHPuMqzstq8N8ieJ0t7868W+9WyloTBO4QQ6amzfF9UO1+PgAC+Ltv6FnZ5T9cLa9sjxLT302+VeeOETZRFpFZYLqQuyTNZTQDlU6B5EEs/n9tfpz+26w5grixGilCeel/UUbFSXmpL4wbxMVllw6el1Rd1VKyUl9rSuEFMk1WW0X7z25tVpbWvZM5vxfI8X4ZNgtTuj7lvENNk5Q0+bvtV3bC5iLqPAXBZntptfCflqL3laH9c5578PVEyUdb3Y7IUmCwFJkvBZVnGDg+T9QAed7IszsNkKcJkXQ7EX0/V4F2B4wlKAAAAAElFTkSuQmCC" InformativeScreenshot="191f27d69728abf96318680eb093c30b.png" ScopeSelectorArgument="&lt;wnd app='uibankadmin.exe' ctrlname='Login' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Text="Submit" TextMethod="AttributeText" TextSelector="&lt;wnd /&gt;" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp FilePath="C:\Program Files (x86)\UiPath\UiBank Admin\uibankadmin.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANwSURBVFhH7ZdLKLRhFMfHZdyn3MtCImaHpFw2yKWmFBtZkZrcIiVFUiytFJENVjYWooQFG82ClI3rQkQaSm6lXBqGv/7n63mbad7vMy4fm3nqX9OZ87zn95zzPM97XoPT6cRv6ssALy8vunZv9WmA19dXPD4+4u7uTn7r+XijDwNwxQy4t7eHhoYGVFVVYXV1Vf77DMiHADhubm4wOjqKtLQ0GAwGUUJCAvr6+nB6eio+HymLVwBc2fPzM2w2G8rLyxEUFKQFV/L390deXh5mZ2fx8PDgdTb+CcCVcJycnKC7uxvx8fFawMTERDQ3N6OwsFCCK7vJZILVasXOzo5AvJeNvwJw8v39PaamppCdnQ0/Pz8tiNFoxMTEhMAdHR0hPT1d+08pNTUVw8PDuL6+Fj+9GJQHAImpzc1N1NbWIjw83OPhwcHBmJmZkQdfXV0hNzfXw4ciqMViwcrKipRQryxuAHS4uLjAwMAAkpOTdR+qlJWVhZGREUm33p5wVVxcHDo7O3F8fOxRFgGggTu4t7dXahoYGKj7oK+IJSR0R0cHdnd3tWwIAAdTHhsbqzv5O8Vszc3NSUwNgDSHh4dyxEJDQ3Unfoe4J/Lz87G2tuYOQHGTnJ+fo7+/H8XFxTIhKioK9fX1aGtrQ0pKitgyMjLQ3t6OmpoageURrKyslNQWFBSID2ve1NSE1tZWOa608ST19PTg4OBAYqm4bpuQe4FjfHxcJpnNZtkbT09PqKioEFtLS4v48JwzEFe1sLAgtqGhIfHJzMzE5eWlXEglJSVi6+rqEh/XDUi5AVAcY2NjGoDdbofD4fAA2N7e1gDm5+fFNjg4qAHwNPEeUQA8Be8eQ4rDB+AD8AH4AH4dgN2OAjg7O5O7WwHwfufgK1UBLC4uis31Kmajwra9tLRUbF5dxVzp/v6+9AWclJSUhKWlJWxsbKCoqEhs1dXV2NrawvT0tLys2DuwMSEQV0kfgrMLWl9f17qluro6eX8wKx4NCcVBB9KHhYXJpICAAAkSHR2tdT0hISGIiYlBZGSk1oyyEaVNtW+u85ghNY8LWl5ellgKQgCYYq40JyfHrfn8H+L3xOTkpJSHEAZuDNb8J7ohJWaYHzIsuWSgsbFRUhwREfEjYlddVlaG29vbPwDsB3mUuJt/Qmxg2JY5HA68AUFvy9bnYFIWAAAAAElFTkSuQmCC" InformativeScreenshot="68e27c6f6e06781da7df029dce4e5351.png" Selector="&lt;wnd app='uibankadmin.exe' ctrlname='Login'/&gt;" />
+              </uix:NApplicationCard.TargetApp>
+            </uix:NApplicationCard>
+            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: UiBank Admin" sap:VirtualizedContainerService.HintSize="510,3000" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" Version="V1">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476,2711" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,226" sap2010:WorkflowViewState.IdRef="NTypeInto_1" Text="Andrew">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="445, 201, 150, 20" ElementType="InputBox" FriendlyName="'WindowsForms10.EDIT.app…'" FullSelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Users' /&gt;&lt;wnd ctrlname='gbUsers' /&gt;&lt;wnd ctrlname='panelUser' /&gt;&lt;wnd ctrlname='txtFirstname' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Users' /&gt;&lt;wnd ctrlname='gbUsers' /&gt;&lt;wnd ctrlname='panelUser' /&gt;&lt;wnd ctrlname='txtFirstname' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJoAAAAYCAYAAAACh+TEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVGhD7dKxDcAgAMCw3s3zdAKpAxvNZEv5IM+EgNFI7NHGGNL1ls9ocJPRSBiNhNFIGI2E0UgYjYTRSBiNhNFIGI2E0UgYjYTRSBiNhNFIGI2E0UgcR5Nut+zR4E9GIzDnC/pnfcrRjKsLAAAAAElFTkSuQmCC" InformativeScreenshot="248557b85ef106b0df78183ba47fed20.png" ScopeSelectorArgument="&lt;wnd app='uibankadmin.exe' ctrlname='Form1' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="387, 204, 52, 13" ElementType="Text" FriendlyName="'Firstname'" FullSelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Users' /&gt;&lt;wnd ctrlname='gbUsers' /&gt;&lt;wnd ctrlname='panelUser' /&gt;&lt;wnd ctrlname='label5' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Users' /&gt;&lt;wnd ctrlname='gbUsers' /&gt;&lt;wnd ctrlname='panelUser' /&gt;&lt;wnd ctrlname='label5' check:text='Firstname' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADgAAAARCAYAAACIJW/gAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEkSURBVEhL7VWLrcMgDMxcDOR5PA3LMIyfDwzPWERFjVQpaa+KIP7hs016yMPxI3h3fCnBwpKOQw73JC6mvBfOCSaWidJKtsKu3YewT3AXtyXYZXUlIUo6uiTMWDHGSYizcLKxdrZcbc0mW7xM7hqYfIqNa6Hx6h56y0ZtaJyhsV9UcvMOkuR6uCWtB3I9MAtBN3yc3ZC55EAqFg6IsWEQ99WvaAFNBgz5Od7sYNfhQFSyda9MyYQ9EHSkfqOIMfZqj3UqPB5HeIGLBA2lj9Kig952vKPzfQqc/MzX6/vEbOIiQUu0ZdHGJzt9jDPe22j3yhemvQ7qDxND/45z/AUudxDJ9bFp/5X9QxO6Cbj3yQ+jGmOf7rU4lz8yD8KP4N3xcIIif/NVddm3dlAbAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" Text="Firstname" TextMethod="AttributeText" TextSelector="&lt;wnd /&gt;" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="434,226" sap2010:WorkflowViewState.IdRef="NTypeInto_2" Text="Jones">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="445, 228, 150, 20" ElementType="InputBox" FriendlyName="'WindowsForms10.EDIT.app…'" FullSelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Users' /&gt;&lt;wnd ctrlname='gbUsers' /&gt;&lt;wnd ctrlname='panelUser' /&gt;&lt;wnd ctrlname='txtLastname' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Users' /&gt;&lt;wnd ctrlname='gbUsers' /&gt;&lt;wnd ctrlname='panelUser' /&gt;&lt;wnd ctrlname='txtLastname' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJoAAAAYCAYAAAACh+TEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABkSURBVGhD7dKxDcAgAMCw3s3zdAKpAxvNZEv5IM+EgNFI7NHGGNL1ls9ocJPRSBiNhNFIGI2E0UgYjYTRSBiNhNFIGI2E0UgYjYTRSBiNhNFIGI2E0UgcR5Nut+zR4E9GIzDnC/pnfcrRjKsLAAAAAElFTkSuQmCC" InformativeScreenshot="5c76ac82cb9fa2c40f56462ed0a15a18.png" ScopeSelectorArgument="&lt;wnd app='uibankadmin.exe' ctrlname='Form1' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="386, 231, 53, 13" ElementType="Text" FriendlyName="'Lastname'" FullSelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Users' /&gt;&lt;wnd ctrlname='gbUsers' /&gt;&lt;wnd ctrlname='panelUser' /&gt;&lt;wnd ctrlname='label6' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Users' /&gt;&lt;wnd ctrlname='gbUsers' /&gt;&lt;wnd ctrlname='panelUser' /&gt;&lt;wnd ctrlname='label6' check:text='Lastname' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADkAAAARCAYAAABn5wTeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEbSURBVFhH7VQBDsMgCPRdPoj3+Bo/42MYKFi0kq1blmxtL+mGeJwgxIAXwF3kWXDhIkvCGBMWWf47vlPkj13SXeQuyQwYQ8BQv4iQm7ukuPlSxhSFwxpVCzCB4UjcUk/4IPzIetXmfcmIONDPIO0nt/l+JzsnIwSgX/GxbeOrzyTIha20NUb4NfHZrnGFLlF8jO73caxI8gMd0G6eb1EPZbt1sQwJTTZj2tvpebFq87/y+2eKXuBAkdwxEjMjM3CKjtWikwNP146eF2v3dXJexMEit/kvCaSTkmzLpI1SdhJl9LWjZ/lLu00ObIGj/gJ+kfNI0KvAiag/8piJ+OCvh+vjM3WVYdZLPct3bbqgjx+ek+Eu8iy4QJGID5pau1GLqZsXAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" Text="Lastname" TextMethod="AttributeText" TextSelector="&lt;wnd /&gt;" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NClick ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="434,166" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="220, 291, 110, 23" ElementType="Button" FriendlyName="'&amp;Filter / Refresh'" FullSelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Users' /&gt;&lt;wnd ctrlname='gbUsers' /&gt;&lt;wnd ctrlname='panelButtons' /&gt;&lt;wnd ctrlname='btnFilter' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Users' /&gt;&lt;wnd ctrlname='gbUsers' /&gt;&lt;wnd ctrlname='panelButtons' /&gt;&lt;wnd ctrlname='btnFilter' check:text='&amp;amp;Filter / Refresh' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHIAAAAbCAYAAACgJtvvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAINSURBVGhD7ZexsYMwDIa9TzZghsxBlUXSsQQlLfXbgyqTOJaeBbaQwUkIAZ989x3ByJLsH+mIsTqKGCpkIUOFLGREQnZdp5yIcMyEfDweyglQIQshW8g/d68cDxWyEFTIQthXyKGxF2OsCbg0w/SsamzL13zEYO9NH/sUcjCmstc+sBG41xXartkl+cr+JvYXkm+G5vg1tHmXvp5eFELw34LdYszeXk1t7+KzTLbcl8DvheTPNtvwYG+VcPii/xWhtshps33J/F5ImsNrba+Vb3dk5+anudreBlrjbLHdJQSQqhEQcogqchYPRPb3EIvHlvIDn81/K8a2DXn4dTffonPa+SvsL+R4KAAdDAkZXHENVFU1Hs4oAvpx870gFJKoRgDXhjk4wBZjLMSjnKLYCfuwwtHe7xPF8zmvtvPX2F9InjzN8Ss944eOhyj4CUlVI8BzcBUHYmB15MTLyW8Agd1v8AsfWyD0LC67/5ATCClUluRnZKEaAWmtE97UfV48/luyJ+AlCVpwFJfff8ixhURR3Cc//4si+SGWqhEQ11IrzIgXrU/Yoz9quWAjdBExj/c5npDuELAt0ZsOHxt4D60q/NiRDmGlGgFxrT9s9L0Sj6+X7N1827gXyrdbfLFm61J7eI99hVS+hgpZCCpkIbwspHJsVMhCWBVSOQ/hiITUcd6hQhYyVMgihrVPtKX5/XtBf9kAAAAASUVORK5CYII=" InformativeScreenshot="c50d33fc51f4c811586734246cfc04db.png" ScopeSelectorArgument="&lt;wnd app='uibankadmin.exe' ctrlname='Form1' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Text="&amp;Filter / Refresh" TextMethod="AttributeText" TextSelector="&lt;wnd /&gt;" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="434,166" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="141, 379, 80, 22" ElementType="Cell" FriendlyName="'AndrewJones'" FullSelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Users' /&gt;&lt;wnd ctrlname='gbUsers' /&gt;&lt;wnd ctrlname='gridUsers' /&gt;&lt;ctrl name='DataGridView' role='table' /&gt;&lt;ctrl name='Row 0' role='row' /&gt;&lt;ctrl name='Username Row 0' role='cell' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Users' /&gt;&lt;wnd ctrlname='gbUsers' /&gt;&lt;wnd ctrlname='gridUsers' /&gt;&lt;ctrl name='DataGridView' role='table' /&gt;&lt;ctrl name='Row 0' role='row' /&gt;&lt;ctrl name='Username Row 0' role='cell' automationid='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFQAAAAaCAYAAAApOXvdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHvSURBVGhD7VXbkcMgDHRbboh2aCFV0Iy/U4dOKwTR2SSGO+VPm2EGC6HHIikbgx6PBwX+jufzqTuiTmgsnxUV6gDLXxDqgCDUGUGoM4JQZwShzpgntCRW2Ckf+j2LI9O+Z1q9dotv2f0npgktaaeUEu2rjAahI0IPynuiwr+0mkQQOiAUwaeCDROrbS8JJcpcubiHcSAqAJ+lHbKNdfgciat+En1+HKOzwU6ziTMxwo833CvEnhJ6siV66u8uvu5bxEZ3ebZVTBEKRy0Y7KXtJXnI1THP2JogSN+6/MDsbYRiBovcPAwgybe7KpeZDTv23ODXHeMPpODSx/hGvs2jyd3TA05igtAaMM76QgDnJNv3jBx7a09WTbKkSiJmds6sVz+us3vFH2DlQ9+aJ5OdcmE9vbeIe0IRQCtPgb5w+RDwnRz7dxUg5KEloVtndm4dcrZxtgvMyD9V31F0THypQnuLG4gM//ijgPl3acFLgqrT7P46Q+vx7NUzVGqfi3Km7dpGychfa/luk3GO7+Lb2Badtl/DDaFvDCMItMowYN3jHMQwISK35wBXwuiPofqsbS8AcbZDUMFi28TFtl+2TAxv4xv7PnKz/XrQVdxWaGANQagzglBnBKHOCEKdEYQ6Y0hoLJ8lhAb8EIS6gugHZzzvMzkz8A8AAAAASUVORK5CYII=" InformativeScreenshot="91d6ddbac628d0bbae82e82f3ae28783.png" ScopeSelectorArgument="&lt;wnd app='uibankadmin.exe' ctrlname='Form1' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Text="AndrewJones" TextMethod="AttributeText" TextSelector="&lt;ctrl role='cell' /&gt;" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="434,166" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="31, 262, 90, 68" FriendlyName="'Accounts'" FullSelectorArgument="&lt;wnd ctrlname='panel2' /&gt;&lt;wnd ctrlname='navList' /&gt;&lt;ctrl name='Name:' role='list' /&gt;&lt;ctrl name='Accounts' role='list item' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='panel2' /&gt;&lt;wnd ctrlname='navList' /&gt;&lt;ctrl name='Name:' role='list' /&gt;&lt;ctrl name='Accounts' role='list item' automationid='' check:text='Accounts' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF4AAABICAYAAAB/XULoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPCSURBVHhe7ZytUuRAFEbnKVAoHBo1Fo9E4/IKvAE2jiocYp8AEc0D4BFTKByOJ8j26eQmTU8msLv9swXf2UpNOpMZ+E4692YyxW56UQWJr4TEV0LiK1Fc/Gaz+S+X4+Pj/vb2dvwt81NF/Ha77W9ubg4uR0dH/enp6eJzf7tcXl76n900jR/zyPjq6urDmMcSVBH/2cxi9l1fX4+jNDw9Pfmf/fb25sevr69+/Pz87Mdwf//rwz45kfhA/MvLy962XEj8TxJPTV1D4hPy+PjohRKMhWZ3qJZKfCIeHh58oIuLC79+d3fnr1xY3t/fx71mJD4RCOayLQQBhFwqOxKfgLUwHIyzs7NxNCPxCaCUMKutpBDc1pFB6YmR+IQgmJJDMJbz8/NJQozEJ8KaK6WFqxvGyFVzzQyC43sgCCCkmmsm1sKouWbEmqtBcAtPQDXXzMTNlVvDhF9C4hNht1up83FzNREhEp8Ikx6CAMSruWZiLYyaa2bC++8EtvAEpPTESHxCuCNJKFv4TpXwS0h8Ikw6dR4BzPKTkxM115xwHU+YWCTb1VwzshaGM4CSEyPxiaDUALOccFbbWVdzzQxXNoSyhRpP0CUkPhEmHZmEYpZTYtRcM6Lmuoya63cVD9wkA2Y5oQgNPKq5ZoaSQihbaK6HAkp8Ikw6j4RDAjfHQhEhEp8Aa65xE7XmuiRY4hOwFkbNNTP2vao1VwIC4RESI/EJiZsrZeZQQIlPRNhcCUwwvuxmG+MYiU+AmusyxZsrwg0114xYQPuEyiy328Q8txRS4hPBhyU+qRKaYPrjs0LiCclMJ5TEDxQRD9R2u7qR+ILiDYkfkPhA8rf/k3r9JxKVxP+PC2cZB6AUxcWLAYmvhMRXQuIrIfGVKCe+43Jt27e7cfzDKSa+a7b+Gnlb2/yudZ8j2r728S8kfte326bv3L+mdugfJZ6wTceKOwBBudlxIOxDjDsjuvGJg9vbebs/kMO2DyJt7B+bvnVnWvg+7fT64TW7Nni+4NlYRDzhvPdxfSg3g4QpLLJ9D/hk+3gQvDDedE18eNBcj5kPiO3PewcH0NYLUEB8MMts2RMQ8NXtNv6n7ePv5s7Cpu3cc35jEfKLJ6hNdw9h3QzuIjFGLMz4kkjHn24Hd1YNJekbzfi5tMwM21zYFKVmLBfz7kslxbEo3t7b7zBMiOkFeckufjHMJMEFn8pQUI8Pbg+b6yzVHwTbl0vWPcGOaTwccJvdu9bt71+7KXqpW6S5in0kvhISXwmJr4TEV0Liq9D3vwFL5HX6OC5y0wAAAABJRU5ErkJggg==" InformativeScreenshot="2d173f4099d414040b8a16c18fe4cc69.png" ScopeSelectorArgument="&lt;wnd app='uibankadmin.exe' ctrlname='Form1' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Text="Accounts" TextMethod="AttributeText" TextSelector="&lt;ctrl role='list item' /&gt;" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="434,166" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="141, 308, 82, 22" ElementType="Cell" FriendlyName="'13151719'" FullSelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Accounts' /&gt;&lt;wnd ctrlname='gbAccounts' /&gt;&lt;wnd ctrlname='gridAccounts' /&gt;&lt;ctrl name='DataGridView' role='table' /&gt;&lt;ctrl name='Row 0' role='row' /&gt;&lt;ctrl name='Account # Row 0' role='cell' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Accounts' /&gt;&lt;wnd ctrlname='gbAccounts' /&gt;&lt;wnd ctrlname='gridAccounts' /&gt;&lt;ctrl name='DataGridView' role='table' /&gt;&lt;ctrl name='Row 0' role='row' /&gt;&lt;ctrl name='Account # Row 0' role='cell' automationid='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFYAAAAaCAYAAAAtzKvgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF6SURBVGhD7ZbtDYMgFEVdi4VYhxWcgmX47Ryv74q0lA+lFTQm7yQkKrdUDk90YmieZxLOsyzLdkT0Fiutb5OK7UjsUcR2RMQOQsQOQsQOQsQOol2sM6QnTXY7BVYr/IibIh13gCxv+RzZ0BQZt3WBJO9MGDtu0Xi/3s/FNIh1ZFRhYlbTpAz3Mg7SQl8lz0epCE8tn8Ai1Wrr1/u5h/aKrYoBmGxSgWkeYsLEi+zLQDXujY8KV1EA53dWbR+xkJb1FcTyI6q2aosleA7GzxYlyccVi4XWpf+4jtNiw154KGqTYxHDo8qCvyuqLrZcfXn+vccqTZqPHy3W4/e9VlEgfXTreb7OoorXd8a3T6/YQLsoT2s+zwX2xi8t9LX8LRYTnvjO/ZSPK/Yrv761D152K6WXYiDJY4/Vfo91OK5Kv4YTFes+exq+G7PZn80zvADG1PTk+Yd9xwr/IGIHIWIHIWIHIWIHIWIHURQrrW+Tiu1I7FHEduTjkegFqLpRLgAr6UUAAAAASUVORK5CYII=" InformativeScreenshot="334be9199f1496a44f74073498231c4b.png" ScopeSelectorArgument="&lt;wnd app='uibankadmin.exe' ctrlname='Form1' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Text="13151719" TextMethod="AttributeText" TextSelector="&lt;ctrl role='cell' /&gt;" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="434,166" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="31, 353, 90, 68" FriendlyName="'Transactions'" FullSelectorArgument="&lt;wnd ctrlname='panel2' /&gt;&lt;wnd ctrlname='navList' /&gt;&lt;ctrl name='-255.76' role='list' /&gt;&lt;ctrl name='Transactions' role='list item' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='panel2' /&gt;&lt;wnd ctrlname='navList' /&gt;&lt;ctrl name='-255.76' role='list' /&gt;&lt;ctrl name='Transactions' role='list item' automationid='' check:text='Transactions' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF4AAABICAYAAAB/XULoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUPSURBVHhe7Zw9UuMwGIZzCioqOmoqt/SU1HS+AjegTccM3RZ7AorUHICegqGio+MEWj9aP6D1Oj8sjuV19DJi4leKJD9SPn82GRahKIsK+Ewq4DOpgM+kSYJ/eXkJl5eX4ejoKJydnYX7+/vov7+/h+Pj41BVVXh4eIje29tbbHd+fh4eHx+j9/T0FD36oK8panLgAbpYLMLp6Wm4ubmJ8Diu6zrW393dRch41KPb29u4QHg/fvyMC0QdfeC5SFPS5MC7U1Ox4wHojkbAxnt9fW2dEK6vr6MHeOUnZ2oaBTwg2LHbysXFRQRHKOGYkKGA5w5XtGWHK8IOXrrDCTV49N0dr6+ki7ZPjQaekyc+ExJ2LSlA3tsHntCjHKcP/MnJSe8YFvqn3SzB/2usJcR032/4SS+ehh92vmIX7wKUvndpN5QmDR7g7HLeywUV0YexHKh6AvZTwcJ4YU7D0ToV8ImI62lstx88djfi4opHqDDt9BNCeNl1zAI+kw4KvDc6U9BBgR/7ZDepgM+kAj6TZg2ews2KHvEdz0cEZCjdTMbrAMWbJSDpuZjU6XnHSx96PlrwEQJZkJCZk/ObJXhOOs2pzb3Tp4+kiQDzuQwexxRvloCoJ1Dq9ITnfQB96rFQeOkdL3My57fdvlVCTaux51LAtyrgM6mAz6QCPpMK+EyaNXieFvooF8/8mfQO8RydvxTxCNh0j3SRY4oLR56uZ85OnZ4pJn1wTJ8+o2csPNJHITMn5jZb8IAWMgJACp52QLi6uvrI7YGoJ3hydo4p5vbUcUxbwdOHnkDJ6fUU47sJZglecIrjMU92k8aeSwHfqoDPpAI+kwr4TCrgM2nW4Ekf/XYA8lGsOTvtSO34+oaLRP6tZ85OusgxxdSROo5pa85OH3oCJcXUU8zJ1HaW4PkDBDczet60mFMDjC+a4guGPF3P3B6geBQXiDra4Jnb04eei8FYeHxNUMjMibnNFryQFMdjnuwmjT2XAr5VAZ9JBXwmFfCZVMDvQXzbYFshA5oteB7HpvBJ7fBNExFftSCvN2fnvXrm7KSGeBTTROpog5fCo54xdi2zBE/hi0R65s7cvCDg2c7cnt2o580XC6XnolGnx3uU4GnH624h5yev972zBJ/ubDRGqAEuY6SLkcq7Z26iZgs+R4zfBF7ozGOMuaQ6WPApdFTAD6w+8F3o6KDAczH1wrovdcH3QUcHBX4MCZ6x10FHBfzAEryp67o5zBo8O458e8zCHz0Ym8Jz+b42FD8NswT/P5RZgS/6WwV8JhXwmVTAZ1IBn0nfBr+q+7ODRb1qWxT1acAdvwr1om5+T0TPy1BVy/DcfT0RHQb4CWp/4OOJ8w/Wqib0NP6qDtVHKKpCjERtm2Vsk/ixKvGWLb6+PtBzM3aV+quw9Bj4nd3/0bYZO3bx1XkMoP2Cbya7XPVMVhBtm9o2gI2Akr5im6RfZR/ND5A/oLAIcVzr8Tpt2/EiVAh/Zx7/qD3v+PbEUXNcV+4edltT19MmBbTg3yAuV027z/qtfajU93W37Ta/+emdxwAaCby7sJ351hNu1eze3x9/+t2xD5X669pu89vDP+cxjEYE38TQ9kyel/WWHd9CjhXsOl6v6SPWDxBqdp5HbPFtjRZqAOWFka9Ibwbfad+ebW8fsaIZm5AQ64zVXmCbOaXjNK8/L66f3lfmMYQGBF/0FRXwmVTAZ1IBn0kFfCYV8FkUwi/ndVUB336ZrwAAAABJRU5ErkJggg==" InformativeScreenshot="6768131e64a87fe52ed546462ef23209.png" ScopeSelectorArgument="&lt;wnd app='uibankadmin.exe' ctrlname='Form1' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Text="Transactions" TextMethod="AttributeText" TextSelector="&lt;ctrl role='list item' /&gt;" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="434,166" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="729, 242, 29, 23" ElementType="Button" FriendlyName="'&gt;'" FullSelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Transactions' /&gt;&lt;wnd ctrlname='gbTransactions' /&gt;&lt;wnd ctrlname='panel1' /&gt;&lt;wnd ctrlname='btnLastPage' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Transactions' /&gt;&lt;wnd ctrlname='gbTransactions' /&gt;&lt;wnd ctrlname='panel1' /&gt;&lt;wnd ctrlname='btnLastPage' check:text='&amp;gt;|' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACEAAAAbCAYAAADyBeakAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACGSURBVEhL7ZO7FcAgCEWzE9uwDKuwgEMwikNYvxQeTsynSRE1CcVtsHj3PGEppWA0IeHsJFJK3WhzTxI558cJCScknMckTAis129HPiKhAhaFHeadmzCoMIgYYtt8zHeYQphAXFsZuhMe/scmZtiJOa7jmikk7hASzjsketHm7iRGERKVghWFS5FvYSGwqQAAAABJRU5ErkJggg==" InformativeScreenshot="976874392593e7b71f438597b29322d7.png" ScopeSelectorArgument="&lt;wnd app='uibankadmin.exe' ctrlname='Form1' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Text="&gt;|" TextMethod="AttributeText" TextSelector="&lt;wnd /&gt;" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <Sequence DisplayName="Table Extraction" sap:VirtualizedContainerService.HintSize="434,260" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NExtractData ContinueOnError="True" DataTable="[DTTransactions]" DisplayName="Extract Table Data" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NExtractData_1" MaximumResults="100">
+                        <uix:NExtractData.Target>
+                          <uix:TargetAnchorable DesignTimeRectangle="139, 309, 1144, 303" ElementType="Table" FriendlyName="'table  DataGridView'" FullSelectorArgument="&lt;wnd ctrlname='MainPanel' /&gt;&lt;wnd ctrlname='UC_Transactions' /&gt;&lt;wnd ctrlname='gbTransactions' /&gt;&lt;wnd ctrlname='gridTransactions' /&gt;&lt;ctrl name='DataGridView' role='table' /&gt;" InformativeScreenshot="006a36f4193ce3baa282afb26b9c242c.png" ScopeSelectorArgument="&lt;wnd app='uibankadmin.exe' ctrlname='Form1' /&gt;" SearchSteps="Selector" />
+                        </uix:NExtractData.Target>
+                      </uix:NExtractData>
+                    </Sequence>
+                    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: UiBank Admin" sap:VirtualizedContainerService.HintSize="434,549" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" Version="V1">
+                      <uix:NApplicationCard.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,260" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NClick ClickType="Single" DisplayName="Click" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable DesignTimeRectangle="1252, 1, 47, 30" ElementType="Button" FriendlyName="'Close'" FullSelectorArgument="&lt;ctrl idx='1' name='Close' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='' name='Close' role='push button' check:text='Close' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADMAAAAhCAYAAAB0v5O6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJXSURBVFhH3ZjbbtpAEIbzQA3gpOlNL6qATzg0UrDBzU3yCgEbH3JO1Iu26gug5A25R5z/zjgYIduNqsYbyR7pF+tda5lPMzve3Z1BRwPLtdRIA0uD19E3ffzr200EtoHL01Y0xu378zbuzk7gd5uRuP/vWs/xrYnwlOcxEFI7sHXqJ3V5nOd9UdRev8vv8XNoaxsFXRVB50U++fj7eB+/WjXsoGC2Wq2wXC6xWCwwn8/hWQp+fpXwoyUVH8YlmEe9hu9He8WDYZAYZjabwTFl3KoV3GmV4sN4tN5uCOZBL2CaxSCs6XRKBUvFtVrFo7Ff3DXD64Vh+m05gnkoBcyJjFDexW0R0ywJ45gK/MYHXCnV4sNEH/XGLkJS7jDD4RCj0Wj9lDYe43f+15IwvMOIYGQBpZmdfXp+zgR6bexfLRUZ2n4xzKWoNMtyOg8QtiSMS5EZEEwgC1wz287nBcKWSjPa5AaqhJDKs9ACEEPkBcKWioxFa0au4UoVvDd7DxjHpCNMvSIWJgbh3+32Wy0rMl6jilARdJ7Jcj4voKzIMExAyh3mNafzAErC9E06bSoSgroAmPf+aHJpvjYOxMCItiTMzVkb98efEVB0Cg/j2UdwKCqh6NIswtIFoInelwrtAEpwnmEY51CCXy9BmvXaehSZUsD0CcYlkKBRhjVjGbTRpNJcBhhOM48Wv3dY4OvZTZpZdATQP1F0ynA7s4H5WB4YX6HIcKdIxbePeYnn5GvZyWSC8XiMHn1nfO2Ajs5UmpN/nreyHHqLeM5tmAtThyPvwZUl/AGTV+k3n8+CQwAAAABJRU5ErkJggg==" InformativeScreenshot="110759edca198257bea7ed7658a57f01.png" ScopeSelectorArgument="&lt;wnd app='uibankadmin.exe' ctrlname='Form1' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Text="Close" TextMethod="AttributeText" TextSelector="&lt;ctrl role='push button' /&gt;" />
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                          </Sequence>
+                        </ActivityAction>
+                      </uix:NApplicationCard.Body>
+                      <uix:NApplicationCard.TargetApp>
+                        <uix:TargetApp FilePath="C:\Program Files (x86)\UiPath\UiBank Admin\uibankadmin.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANwSURBVFhH7ZdLKLRhFMfHZdyn3MtCImaHpFw2yKWmFBtZkZrcIiVFUiytFJENVjYWooQFG82ClI3rQkQaSm6lXBqGv/7n63mbad7vMy4fm3nqX9OZ87zn95zzPM97XoPT6cRv6ssALy8vunZv9WmA19dXPD4+4u7uTn7r+XijDwNwxQy4t7eHhoYGVFVVYXV1Vf77DMiHADhubm4wOjqKtLQ0GAwGUUJCAvr6+nB6eio+HymLVwBc2fPzM2w2G8rLyxEUFKQFV/L390deXh5mZ2fx8PDgdTb+CcCVcJycnKC7uxvx8fFawMTERDQ3N6OwsFCCK7vJZILVasXOzo5AvJeNvwJw8v39PaamppCdnQ0/Pz8tiNFoxMTEhMAdHR0hPT1d+08pNTUVw8PDuL6+Fj+9GJQHAImpzc1N1NbWIjw83OPhwcHBmJmZkQdfXV0hNzfXw4ciqMViwcrKipRQryxuAHS4uLjAwMAAkpOTdR+qlJWVhZGREUm33p5wVVxcHDo7O3F8fOxRFgGggTu4t7dXahoYGKj7oK+IJSR0R0cHdnd3tWwIAAdTHhsbqzv5O8Vszc3NSUwNgDSHh4dyxEJDQ3Unfoe4J/Lz87G2tuYOQHGTnJ+fo7+/H8XFxTIhKioK9fX1aGtrQ0pKitgyMjLQ3t6OmpoageURrKyslNQWFBSID2ve1NSE1tZWOa608ST19PTg4OBAYqm4bpuQe4FjfHxcJpnNZtkbT09PqKioEFtLS4v48JwzEFe1sLAgtqGhIfHJzMzE5eWlXEglJSVi6+rqEh/XDUi5AVAcY2NjGoDdbofD4fAA2N7e1gDm5+fFNjg4qAHwNPEeUQA8Be8eQ4rDB+AD8AH4AH4dgN2OAjg7O5O7WwHwfufgK1UBLC4uis31Kmajwra9tLRUbF5dxVzp/v6+9AWclJSUhKWlJWxsbKCoqEhs1dXV2NrawvT0tLys2DuwMSEQV0kfgrMLWl9f17qluro6eX8wKx4NCcVBB9KHhYXJpICAAAkSHR2tdT0hISGIiYlBZGSk1oyyEaVNtW+u85ghNY8LWl5ellgKQgCYYq40JyfHrfn8H+L3xOTkpJSHEAZuDNb8J7ohJWaYHzIsuWSgsbFRUhwREfEjYlddVlaG29vbPwDsB3mUuJt/Qmxg2JY5HA68AUFvy9bnYFIWAAAAAElFTkSuQmCC" InformativeScreenshot="860b82e0c138a236ad795144a270db4c.png" Selector="&lt;wnd app='uibankadmin.exe' ctrlname='Form1'/&gt;" />
+                      </uix:NApplicationCard.TargetApp>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NApplicationCard>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp FilePath="C:\Program Files (x86)\UiPath\UiBank Admin\uibankadmin.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANwSURBVFhH7ZdLKLRhFMfHZdyn3MtCImaHpFw2yKWmFBtZkZrcIiVFUiytFJENVjYWooQFG82ClI3rQkQaSm6lXBqGv/7n63mbad7vMy4fm3nqX9OZ87zn95zzPM97XoPT6cRv6ssALy8vunZv9WmA19dXPD4+4u7uTn7r+XijDwNwxQy4t7eHhoYGVFVVYXV1Vf77DMiHADhubm4wOjqKtLQ0GAwGUUJCAvr6+nB6eio+HymLVwBc2fPzM2w2G8rLyxEUFKQFV/L390deXh5mZ2fx8PDgdTb+CcCVcJycnKC7uxvx8fFawMTERDQ3N6OwsFCCK7vJZILVasXOzo5AvJeNvwJw8v39PaamppCdnQ0/Pz8tiNFoxMTEhMAdHR0hPT1d+08pNTUVw8PDuL6+Fj+9GJQHAImpzc1N1NbWIjw83OPhwcHBmJmZkQdfXV0hNzfXw4ciqMViwcrKipRQryxuAHS4uLjAwMAAkpOTdR+qlJWVhZGREUm33p5wVVxcHDo7O3F8fOxRFgGggTu4t7dXahoYGKj7oK+IJSR0R0cHdnd3tWwIAAdTHhsbqzv5O8Vszc3NSUwNgDSHh4dyxEJDQ3Unfoe4J/Lz87G2tuYOQHGTnJ+fo7+/H8XFxTIhKioK9fX1aGtrQ0pKitgyMjLQ3t6OmpoageURrKyslNQWFBSID2ve1NSE1tZWOa608ST19PTg4OBAYqm4bpuQe4FjfHxcJpnNZtkbT09PqKioEFtLS4v48JwzEFe1sLAgtqGhIfHJzMzE5eWlXEglJSVi6+rqEh/XDUi5AVAcY2NjGoDdbofD4fAA2N7e1gDm5+fFNjg4qAHwNPEeUQA8Be8eQ4rDB+AD8AH4AH4dgN2OAjg7O5O7WwHwfufgK1UBLC4uis31Kmajwra9tLRUbF5dxVzp/v6+9AWclJSUhKWlJWxsbKCoqEhs1dXV2NrawvT0tLys2DuwMSEQV0kfgrMLWl9f17qluro6eX8wKx4NCcVBB9KHhYXJpICAAAkSHR2tdT0hISGIiYlBZGSk1oyyEaVNtW+u85ghNY8LWl5ellgKQgCYYq40JyfHrfn8H+L3xOTkpJSHEAZuDNb8J7ohJWaYHzIsuWSgsbFRUhwREfEjYlddVlaG29vbPwDsB3mUuJt/Qmxg2JY5HA68AUFvy9bnYFIWAAAAAElFTkSuQmCC" InformativeScreenshot="d421df3921501ae5490d3b437926eaf9.png" Selector="&lt;wnd app='uibankadmin.exe' ctrlname='Form1'/&gt;" />
+              </uix:NApplicationCard.TargetApp>
+            </uix:NApplicationCard>
+          </Sequence>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+  </Sequence>
+</Activity>
