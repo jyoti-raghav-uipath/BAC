@@ -1,0 +1,550 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="LookupExcel" this:LookupExcel.In_DOB="10/09/1975" this:LookupExcel.In_LastName="Jones" this:LookupExcel.In_PolicyNum="13151719" this:LookupExcel.In_IsFastSpeed="False" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="In_DOB" Type="InArgument(x:String)" />
+    <x:Property Name="In_LastName" Type="InArgument(x:String)" />
+    <x:Property Name="In_PolicyNum" Type="InArgument(x:String)" />
+    <x:Property Name="out_AccountNum" Type="OutArgument(x:String)" />
+    <x:Property Name="In_IsFastSpeed" Type="InArgument(x:Boolean)" />
+    <x:Property Name="Out_LastName" Type="OutArgument(x:String)" />
+    <x:Property Name="Out_DOB" Type="OutArgument(x:String)" />
+    <x:Property Name="Out_FirstName" Type="OutArgument(x:String)" />
+    <x:Property Name="Out_Title" Type="OutArgument(x:String)" />
+    <x:Property Name="Out_Address1" Type="OutArgument(x:String)" />
+    <x:Property Name="Out_Address2" Type="OutArgument(x:String)" />
+    <x:Property Name="Out_Town" Type="OutArgument(x:String)" />
+    <x:Property Name="Out_County" Type="OutArgument(x:String)" />
+    <x:Property Name="Out_PostCode" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1769,3002</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>LookupExcel_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.Excel</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="LookupExcel" sap:VirtualizedContainerService.HintSize="1399,2897" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="DT_Policies" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <If Condition="[In_IsFastSpeed=True]" sap:VirtualizedContainerService.HintSize="1357,2805" sap2010:WorkflowViewState.IdRef="If_4">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="618,1659" sap2010:WorkflowViewState.IdRef="Sequence_15">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ReadRange AddHeaders="True" DataTable="[DT_Policies]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="576,87" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="Policies.xlsx">
+            <ui:ReadRange.Range>
+              <InArgument x:TypeArguments="x:String">
+                <Literal x:TypeArguments="x:String" Value="" />
+              </InArgument>
+            </ui:ReadRange.Range>
+          </ui:ReadRange>
+          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[DT_Policies]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="576,1440" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+            <ui:ForEachRow.Body>
+              <ActivityAction x:TypeArguments="sd:DataRow">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,1292" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[row(&quot;Policy&quot;).ToString.trim = In_PolicyNum.trim]" sap:VirtualizedContainerService.HintSize="484,1200" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="304,1052" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[out_AccountNum]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[row("Account").ToString.trim]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Out_DOB]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[row("DOB").ToString.trim]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Out_LastName]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[row("Lastname").ToString.trim]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Out_FirstName]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[row("FirstName").ToString.trim]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Out_Title]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[row("Title").ToString.trim]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Out_Address1]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[row("Address1").ToString.trim]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Out_Address2]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[row("Address2").ToString.trim]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Out_Town]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[row("Town").ToString.trim]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Out_County]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[row("County").ToString.trim]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_21">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">[Out_PostCode]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">[row("PostCode").ToString.trim]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEachRow.Body>
+          </ui:ForEachRow>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="694,2657" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbook" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="652,192" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" Workbook="[ExcelWorkbook]" WorkbookPath="Policies.xlsx">
+            <ui:ExcelApplicationScope.Body>
+              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </ActivityAction>
+            </ui:ExcelApplicationScope.Body>
+          </ui:ExcelApplicationScope>
+          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="VISIBLE Excel Application Scope" sap:VirtualizedContainerService.HintSize="652,2234" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" WorkbookPath="Policies.xlsx">
+            <ui:ExcelApplicationScope.Body>
+              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="618,2125" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="sd:DataTable" Name="DT_Policies" />
+                    <Variable x:TypeArguments="x:Int32" Name="rowIndex" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ExcelReadRange AddHeaders="True" DataTable="[DT_Policies]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="576,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" SheetName="Sheet1">
+                    <ui:ExcelReadRange.Range>
+                      <InArgument x:TypeArguments="x:String">
+                        <Literal x:TypeArguments="x:String" Value="" />
+                      </InArgument>
+                    </ui:ExcelReadRange.Range>
+                  </ui:ExcelReadRange>
+                  <ui:ForEachRow CurrentIndex="[rowIndex]" DataTable="[DT_Policies]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="576,1934" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                    <ui:ForEachRow.Body>
+                      <ActivityAction x:TypeArguments="sd:DataRow">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,1787" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If Condition="[row(&quot;Policy&quot;).ToString.trim = In_PolicyNum.trim]" sap:VirtualizedContainerService.HintSize="484,1695" sap2010:WorkflowViewState.IdRef="If_3">
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="304,1548" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Delay_2">
+                                  <TextExpression.Namespaces>
+                                    <sco:Collection x:TypeArguments="x:String">
+                                      <x:String>System.Activities</x:String>
+                                      <x:String>System.Activities.Statements</x:String>
+                                      <x:String>System.Activities.Expressions</x:String>
+                                      <x:String>System.Activities.Validation</x:String>
+                                      <x:String>System.Activities.XamlIntegration</x:String>
+                                      <x:String>Microsoft.VisualBasic.Activities</x:String>
+                                      <x:String>System</x:String>
+                                      <x:String>System.Collections.Generic</x:String>
+                                      <x:String>System.Data</x:String>
+                                      <x:String>System.Diagnostics</x:String>
+                                      <x:String>System.IO</x:String>
+                                      <x:String>System.Linq</x:String>
+                                      <x:String>System.Management.Automation</x:String>
+                                      <x:String>System.Net.Mail</x:String>
+                                      <x:String>System.Xml</x:String>
+                                      <x:String>System.Xml.Linq</x:String>
+                                      <x:String>UiPath.Library</x:String>
+                                      <x:String>System.Windows.Markup</x:String>
+                                    </sco:Collection>
+                                  </TextExpression.Namespaces>
+                                  <TextExpression.References>
+                                    <sco:Collection x:TypeArguments="AssemblyReference">
+                                      <AssemblyReference>System.Activities</AssemblyReference>
+                                      <AssemblyReference>mscorlib</AssemblyReference>
+                                      <AssemblyReference>System.Data</AssemblyReference>
+                                      <AssemblyReference>System</AssemblyReference>
+                                      <AssemblyReference>System.Core</AssemblyReference>
+                                      <AssemblyReference>System.Management.Automation</AssemblyReference>
+                                      <AssemblyReference>System.Xml</AssemblyReference>
+                                      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+                                      <AssemblyReference>UiPath.Library</AssemblyReference>
+                                      <AssemblyReference>PresentationFramework</AssemblyReference>
+                                      <AssemblyReference>WindowsBase</AssemblyReference>
+                                      <AssemblyReference>PresentationCore</AssemblyReference>
+                                      <AssemblyReference>System.Xaml</AssemblyReference>
+                                    </sco:Collection>
+                                  </TextExpression.References>
+                                </Delay>
+                                <ui:ExcelSetRangeColor Color="[system.Drawing.Color.LightGreen]" DisplayName="Set Range Color" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_1" Range="[&quot;A&quot; &amp; (rowIndex+2) &amp; &quot;:AD&quot; &amp; (rowIndex+2)]" SheetName="Sheet1" />
+                                <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Delay_1">
+                                  <TextExpression.Namespaces>
+                                    <sco:Collection x:TypeArguments="x:String">
+                                      <x:String>System.Activities</x:String>
+                                      <x:String>System.Activities.Statements</x:String>
+                                      <x:String>System.Activities.Expressions</x:String>
+                                      <x:String>System.Activities.Validation</x:String>
+                                      <x:String>System.Activities.XamlIntegration</x:String>
+                                      <x:String>Microsoft.VisualBasic.Activities</x:String>
+                                      <x:String>System</x:String>
+                                      <x:String>System.Collections.Generic</x:String>
+                                      <x:String>System.Data</x:String>
+                                      <x:String>System.Diagnostics</x:String>
+                                      <x:String>System.IO</x:String>
+                                      <x:String>System.Linq</x:String>
+                                      <x:String>System.Management.Automation</x:String>
+                                      <x:String>System.Net.Mail</x:String>
+                                      <x:String>System.Xml</x:String>
+                                      <x:String>System.Xml.Linq</x:String>
+                                      <x:String>UiPath.Library</x:String>
+                                      <x:String>System.Windows.Markup</x:String>
+                                    </sco:Collection>
+                                  </TextExpression.Namespaces>
+                                  <TextExpression.References>
+                                    <sco:Collection x:TypeArguments="AssemblyReference">
+                                      <AssemblyReference>System.Activities</AssemblyReference>
+                                      <AssemblyReference>mscorlib</AssemblyReference>
+                                      <AssemblyReference>System.Data</AssemblyReference>
+                                      <AssemblyReference>System</AssemblyReference>
+                                      <AssemblyReference>System.Core</AssemblyReference>
+                                      <AssemblyReference>System.Management.Automation</AssemblyReference>
+                                      <AssemblyReference>System.Xml</AssemblyReference>
+                                      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+                                      <AssemblyReference>UiPath.Library</AssemblyReference>
+                                      <AssemblyReference>PresentationFramework</AssemblyReference>
+                                      <AssemblyReference>WindowsBase</AssemblyReference>
+                                      <AssemblyReference>PresentationCore</AssemblyReference>
+                                      <AssemblyReference>System.Xaml</AssemblyReference>
+                                    </sco:Collection>
+                                  </TextExpression.References>
+                                </Delay>
+                                <ui:ExcelSetRangeColor Color="[system.Drawing.Color.White]" DisplayName="Set Range Color" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_2" Range="[&quot;A&quot; &amp; (rowIndex+2) &amp; &quot;:AD&quot; &amp; (rowIndex+2)]" SheetName="Sheet1" />
+                                <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Delay_3">
+                                  <TextExpression.Namespaces>
+                                    <sco:Collection x:TypeArguments="x:String">
+                                      <x:String>System.Activities</x:String>
+                                      <x:String>System.Activities.Statements</x:String>
+                                      <x:String>System.Activities.Expressions</x:String>
+                                      <x:String>System.Activities.Validation</x:String>
+                                      <x:String>System.Activities.XamlIntegration</x:String>
+                                      <x:String>Microsoft.VisualBasic.Activities</x:String>
+                                      <x:String>System</x:String>
+                                      <x:String>System.Collections.Generic</x:String>
+                                      <x:String>System.Data</x:String>
+                                      <x:String>System.Diagnostics</x:String>
+                                      <x:String>System.IO</x:String>
+                                      <x:String>System.Linq</x:String>
+                                      <x:String>System.Management.Automation</x:String>
+                                      <x:String>System.Net.Mail</x:String>
+                                      <x:String>System.Xml</x:String>
+                                      <x:String>System.Xml.Linq</x:String>
+                                      <x:String>UiPath.Library</x:String>
+                                      <x:String>System.Windows.Markup</x:String>
+                                    </sco:Collection>
+                                  </TextExpression.Namespaces>
+                                  <TextExpression.References>
+                                    <sco:Collection x:TypeArguments="AssemblyReference">
+                                      <AssemblyReference>System.Activities</AssemblyReference>
+                                      <AssemblyReference>mscorlib</AssemblyReference>
+                                      <AssemblyReference>System.Data</AssemblyReference>
+                                      <AssemblyReference>System</AssemblyReference>
+                                      <AssemblyReference>System.Core</AssemblyReference>
+                                      <AssemblyReference>System.Management.Automation</AssemblyReference>
+                                      <AssemblyReference>System.Xml</AssemblyReference>
+                                      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+                                      <AssemblyReference>UiPath.Library</AssemblyReference>
+                                      <AssemblyReference>PresentationFramework</AssemblyReference>
+                                      <AssemblyReference>WindowsBase</AssemblyReference>
+                                      <AssemblyReference>PresentationCore</AssemblyReference>
+                                      <AssemblyReference>System.Xaml</AssemblyReference>
+                                    </sco:Collection>
+                                  </TextExpression.References>
+                                </Delay>
+                                <ui:ExcelSetRangeColor Color="[system.Drawing.Color.LightGreen]" DisplayName="Set Range Color" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_3" Range="[&quot;A&quot; &amp; (rowIndex+2) &amp; &quot;:AD&quot; &amp; (rowIndex+2)]" SheetName="Sheet1" />
+                                <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Delay_4">
+                                  <TextExpression.Namespaces>
+                                    <sco:Collection x:TypeArguments="x:String">
+                                      <x:String>System.Activities</x:String>
+                                      <x:String>System.Activities.Statements</x:String>
+                                      <x:String>System.Activities.Expressions</x:String>
+                                      <x:String>System.Activities.Validation</x:String>
+                                      <x:String>System.Activities.XamlIntegration</x:String>
+                                      <x:String>Microsoft.VisualBasic.Activities</x:String>
+                                      <x:String>System</x:String>
+                                      <x:String>System.Collections.Generic</x:String>
+                                      <x:String>System.Data</x:String>
+                                      <x:String>System.Diagnostics</x:String>
+                                      <x:String>System.IO</x:String>
+                                      <x:String>System.Linq</x:String>
+                                      <x:String>System.Management.Automation</x:String>
+                                      <x:String>System.Net.Mail</x:String>
+                                      <x:String>System.Xml</x:String>
+                                      <x:String>System.Xml.Linq</x:String>
+                                      <x:String>UiPath.Library</x:String>
+                                      <x:String>System.Windows.Markup</x:String>
+                                    </sco:Collection>
+                                  </TextExpression.Namespaces>
+                                  <TextExpression.References>
+                                    <sco:Collection x:TypeArguments="AssemblyReference">
+                                      <AssemblyReference>System.Activities</AssemblyReference>
+                                      <AssemblyReference>mscorlib</AssemblyReference>
+                                      <AssemblyReference>System.Data</AssemblyReference>
+                                      <AssemblyReference>System</AssemblyReference>
+                                      <AssemblyReference>System.Core</AssemblyReference>
+                                      <AssemblyReference>System.Management.Automation</AssemblyReference>
+                                      <AssemblyReference>System.Xml</AssemblyReference>
+                                      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+                                      <AssemblyReference>UiPath.Library</AssemblyReference>
+                                      <AssemblyReference>PresentationFramework</AssemblyReference>
+                                      <AssemblyReference>WindowsBase</AssemblyReference>
+                                      <AssemblyReference>PresentationCore</AssemblyReference>
+                                      <AssemblyReference>System.Xaml</AssemblyReference>
+                                    </sco:Collection>
+                                  </TextExpression.References>
+                                </Delay>
+                                <ui:ExcelSetRangeColor Color="[system.Drawing.Color.White]" DisplayName="Set Range Color" sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="ExcelSetRangeColor_4" Range="[&quot;A&quot; &amp; (rowIndex+2) &amp; &quot;:AD&quot; &amp; (rowIndex+2)]" SheetName="Sheet1" />
+                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[out_AccountNum]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[row("Account").ToString.trim]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[Out_DOB]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[row("DOB").ToString.trim]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[Out_LastName]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[row("Lastname").ToString.trim]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[Out_FirstName]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[row("FirstName").ToString.trim]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[Out_Title]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[row("Title").ToString.trim]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[Out_Address1]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[row("Address1").ToString.trim]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[Out_Address2]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[row("Address2").ToString.trim]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[Out_Town]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[row("Town").ToString.trim]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[Out_County]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[row("County").ToString.trim]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[Out_PostCode]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">[row("PostCode").ToString.trim]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </If.Then>
+                          </If>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEachRow.Body>
+                  </ui:ForEachRow>
+                </Sequence>
+              </ActivityAction>
+            </ui:ExcelApplicationScope.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ExcelApplicationScope>
+          <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="552,59" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_1" Workbook="[ExcelWorkbook]" />
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>
